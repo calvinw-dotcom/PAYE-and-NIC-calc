@@ -1,0 +1,48 @@
+salary = int(input("Salary: "))
+monthly_salary = salary/12
+monthly_ni_contribution = 0
+pt = 792
+st = 4167
+
+if monthly_salary > st:
+    x = (monthly_salary - st)*0.02
+    y = (st - pt)*0.12
+    monthly_ni_contribution = x + y
+elif monthly_salary > pt:
+    monthly_ni_contribution = (monthly_salary - pt)*0.12
+elif monthly_salary <= pt:
+    monthly_ni_contribution = 0
+
+ni_contributions = monthly_ni_contribution *12
+print(f"NICs: {ni_contributions}")
+
+nrb = 12500
+
+if salary > 150000:
+    x = (salary - 150000)*0.45
+    y = (150000 - 50000)*0.4
+    z = 50000 * 0.2
+    income_tax = x + y + z
+elif 150000 >= salary > 100000:
+    nrb_reducer = (salary - 100000)/2
+    new_nrb = nrb - nrb_reducer
+    x = (50000 - new_nrb)*0.2
+    y = (salary - 50000) * 0.4
+    income_tax = x + y
+elif 100000 > salary >= 50000:
+    x = (50000 - nrb) * 0.2
+    y = (salary - 50000) * 0.4
+    income_tax = x + y
+elif 50000 > salary > 12500:
+    income_tax = (salary - nrb) *0.2
+elif salary < 12500:
+    income_tax = 0
+
+print(f"Income tax: {income_tax}")
+    
+
+
+    
+    
+    
+    
